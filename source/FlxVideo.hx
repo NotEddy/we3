@@ -6,6 +6,10 @@ import openfl.media.Video;
 #elseif html5
 import extension.webview.WebView;
 import android.*;
+import openfl.net.NetConnection;
+import openfl.net.NetStream;
+import openfl.events.NetStatusEvent;
+import openfl.media.Video;
 #else
 import openfl.events.Event;
 import vlc.VlcBitmap;
