@@ -56,7 +56,7 @@ import lime.app.Application;
 import ui.Mobilecontrols;
 #end
 
-#if sys
+//#if sys
 import sys.FileSystem;
 #end
 
@@ -1091,7 +1091,7 @@ class PlayState extends MusicBeatState
 
 		for (folder in foldersToCheck)
 		{
-			if(FileSystem.exists(folder))
+			if(FileSyfstem.exists(folder))
 			{
 				for (file in FileSystem.readDirectory(folder))
 				{
