@@ -1169,7 +1169,7 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				
 				case 'philly-nice-in-game-version'
-                    startVideo('yankin');
+                    startVideo:('yankin');
 				default:
 					startCountdown();
 			}
