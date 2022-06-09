@@ -1080,7 +1080,6 @@ class PlayState extends MusicBeatState
 
 
 		// SONG SPECIFIC SCRIPTS
-		#if LUA_ALLOWED
 		var filesPushed:Array<String> = [];
 		var foldersToCheck:Array<String> = [Main.getDataPath() + Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/')];
 
@@ -1104,10 +1103,9 @@ class PlayState extends MusicBeatState
 				}
 			}
 		}
-		#end
 		
 		var daSong:String = Paths.formatToSongPath(curSong);
-		if (!isStoryMode)
+		if (!seenCutscene)
 		{
 			switch (daSong)
 			{
@@ -1168,7 +1166,7 @@ class PlayState extends MusicBeatState
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 				
-				case 'philly-nice-in-game-version':
+				case 'philly-nice-in-game-version' | 'philly-nice-in-game-ver':
                     startVideo('yankin');
 				default:
 					startCountdown();
