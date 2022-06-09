@@ -56,8 +56,9 @@ import lime.app.Application;
 import ui.Mobilecontrols;
 #end
 
-//#if sys
+#if sys
 import sys.FileSystem;
+#end
 
 using StringTools;
 
@@ -1088,19 +1089,10 @@ class PlayState extends MusicBeatState
 			foldersToCheck.insert(0, Paths.mods(Paths.currentModDirectory + '/data/' + Paths.formatToSongPath(SONG.song) + '/'));
 		#end
 
-		for (folder in foldersToCheck)
+		if(file.endsWith('.lua') && !filesPushed.contains(file))
 		{
-			if(FileSyfstem.exists(folder))
-			{
-				for (file in FileSystem.readDirectory(folder))
-				{
-					if(file.endsWith('.lua') && !filesPushed.contains(file))
-					{
-						luaArray.push(new FunkinLua(folder + file));
-						filesPushed.push(file);
-					}
-				}
-			}
+			luaArray.push(new FunkinLua(folder + file));
+			filesPushed.push(file);
 		}
 		
 		var daSong:String = Paths.formatToSongPath(curSong);
